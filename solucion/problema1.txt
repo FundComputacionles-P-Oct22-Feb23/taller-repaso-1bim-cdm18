@@ -1,0 +1,56 @@
+1. Inicio
+
+2. nombre, x (500)[{A-Z}, {a-z}]
+3. mensaje, x (1000)[{A-Z}, {a-z}, {0-9}, {BS}, {$}] <-- ""
+4. numero_empleados, i[0 - n] <-- 0 
+5. cedula, i[0 - n]
+6. horas_matutinas, i[0 - n]
+7. horas_nocturnas, i[0 - n]
+8. cuotahora_mat, d [0 - n] <-- 10
+9. cuotahora_noct, d [0 - n] <-- 15
+10. pagoDia, d [0 - n]
+11. pagoNoche, d [0 - n]
+12. adicional, d [0 - n] <-- 0
+13. sueldo, d [0 - n]
+14. bandera, l <-- true
+15. opcion, x (1)[{A-Z}, {a-z}]
+
+
+16. Mientras bandera = true 
+17. 	<< "Ingrese el nombre del empleado"
+18. 	>> nombre
+19. 	<< "Ingrese su cedula"
+20. 	>> cedula
+21. 	<< "Ingrese las horas trabajadas matutinas"
+22. 	>> horas_matutinas
+23. 	<< "Ingrese las horas trabajadas nocturnas"
+24. 	>> horas_nocturnas
+
+25. 	pagoDia <-- cuotahora_mat * horas_matutinas 
+
+26. 	Si horas_nocturnas >= 10 entonces
+27.		adicional <-- cuota_noct * 0.10
+28.	Fin si
+29.  	cuotahora_noct <-- cuotahora_noct + adicional
+30.     pagoNoche <-- cuotahora_noct * horas_nocturnas
+31. 	sueldo <-- pagoDia + pagoNoche
+
+32. 	mensaje <-- mensaje + "Rol del trabajador de nombre" + nombre + " y cedula" + cedula + "." +  "\n"
+		+ "\t" + " Horas matutina trabajadas: " + horas_matutinas + "." + "\n\t" + "Horas nocturnas trabajadas: "
+		 + horas_nocturnas + "." + "\n\t" + "\n\t" + "Total a cancelar " + "$" + sueldo + "." + "\n"
+33. 	contador = contador + 1
+34. 	<< "Desea seguir ingresando datos, si es asi presione S"
+35.     >> opcion
+36.	Si opcion == "s" or opcion == "S"
+37. 		bandera <-- false
+38. 	Fin si
+39. Fin mientras
+40. << "Nomina de Trabajadores" + "\n" + mensaje + "Numero de empleados " + contador 
+
+41. Fin
+
+
+
+
+
+
